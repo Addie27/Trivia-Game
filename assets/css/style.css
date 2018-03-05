@@ -1,0 +1,63 @@
+body {
+    background-image: url("../images/cheetah.jpg");
+    background-size: cover; 
+    font-family: 'Questrial', sans-serif;
+}
+
+.panel {
+    font-size: 20px; 
+    background-color: lightgreen; 
+}
+
+.panel-title {
+    font-size: 50px; 
+}
+
+.panel-heading {
+    background-color: greenyellow !important;   
+
+}
+
+#score {
+    height: 300px;
+    width: 400px;
+    background-color: yellowgreen; 
+    font-family: 'Questrial', sans-serif;
+    border: 5px solid black; 
+    font-size: 25px;
+    text-align: center; 
+    position: absolute;
+    left: 35%;
+    top: 25%; 
+    line-height: 50px; 
+    
+}
+
+.title {
+    position: fixed; 
+    z-index: 10;
+    width: 81%; 
+    text-align: center;
+}
+
+.question1 {
+    padding-top: 210px; 
+}
+
+#start, .submit {
+    width: 100px;
+    height: 60px; 
+    font-size: 20px;
+    font-weight: bold; 
+    border: 2px solid black; 
+    color: black; 
+    padding: 5px; 
+    text-decoration: none; 
+    background-color: lightgreen; 
+
+}
+
+#gamestart {
+    height: 400px; 
+}
+
