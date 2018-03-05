@@ -1,30 +1,18 @@
-var questionAnswer
+var questionAnswerOne;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0; 
-var time = 5;
-var timer;
+var time = 15;
+var timer; 
+
 
 //Problem 1: Time starts running down
-function start() {
-    clearInterval(timer);
-    timer = setInterval(decrement, 1000);
-}; //start function end
-start(); 
-
-function end() {
-    
-    clearInterval(timer);
-
-}; //stop function end
-
-//Problem 4: If time runs out, score screen comes up
 function decrement() {
     time--;
     $("#timer").html("<div>Time Remaining: " + time + "</div>");
     
     if (time === 0) {
-        end();
+        end(); 
         $("#gamePlay").html("<br/><div id='score'>All done!<br/>" +
                             "Correct Answers: " + correctAnswers + "<br/>" + 
                             "Incorrect Answers: " + incorrectAnswers + "<br/>" + 
@@ -32,23 +20,45 @@ function decrement() {
       }
 }; //decerement function end
 
+function start() {
+    timer = setInterval(decrement, 1000);
+    
+}; //start function end
+start(); 
 
+//Problem 4: If time runs out, score screen comes up
+
+
+function end() {
+    clearInterval(timer); 
+    
+};//end function end
+ 
 
 //Once the Submit button is clicked I want to
 function question(){
-    clearInterval(timer);
-    end(); 
 //Loop through each quesitons 
-$( ".radio-inline" ).each(function( index ) {
-    console.log( index + ": " + $( this ).text() );
-  });
+    $("input[name=inlineRadioOptions1]:checked").each(function() {
 //Find hte value of each radio selected
+        questionAnswerOne = $("input[name=inlineRadioOptions1]:checked").val();
+            if (questionAnswerOne === "correct"){
+                correctAnswers++
+                console.log("correct" + correctAnswers); 
+            } //if statement close
+            else if (questionAnswerOne !== "correct") {
+                incorrectAnswers++; 
+                console.log("incorrect" + incorrectAnswers); 
+            }; 
+      
+            
+
 //if that radio === the correct radio
 //correct answers increases
 //if that radio !== the correct radio
 //incorrect answers increases
 //if no radio button is selected
 //unaswered increases 
+    });//loop end
 };//question function ended
 
 
