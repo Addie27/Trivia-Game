@@ -1,22 +1,17 @@
-var questionAnswerOne;
+var questionAnswer;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0; 
-var time = 15;
+var time = 20;
 var timer; 
 
 
-//Problem 1: Time starts running down
-function decrement() {
+function decrement() {//decrement function to run clock down
     time--;
     $("#timer").html("<div>Time Remaining: " + time + "</div>");
-    
     if (time === 0) {
         end(); 
-        $("#gamePlay").html("<br/><div id='score'>All done!<br/>" +
-                            "Correct Answers: " + correctAnswers + "<br/>" + 
-                            "Incorrect Answers: " + incorrectAnswers + "<br/>" + 
-                            "Unanswered: " + unanswered + "</div>");
+        
       }
 }; //decerement function end
 
@@ -24,49 +19,44 @@ function start() {
     timer = setInterval(decrement, 1000);
     
 }; //start function end
-start(); 
+start(); //calling start function 
+question(); //calling question function 
 
-//Problem 4: If time runs out, score screen comes up
+function notAnswered() {//used to calculate not answered questions 
+    var result = correctAnswers + incorrectAnswers
+    if (result < 10){
+        unanswered = 10 - (result); 
+    }
+};//unanswered function end
 
-
-function end() {
-    clearInterval(timer); 
+function question(){//loop through each answer to identify those that are checked
+    $(".rb").each(function() {
+        if( $(this).is(":checked")) { // check if the radio is checked
+            var questionAnswer = $(this).val(); // retrieve the value
+        
+         if (questionAnswer === "correct"){//if correct, correct answers increases
+             correctAnswers++
     
-};//end function end
- 
-
-//Once the Submit button is clicked I want to
-function question(){
-//Loop through each quesitons 
-    $("input[name=inlineRadioOptions1]:checked").each(function() {
-//Find hte value of each radio selected
-        questionAnswerOne = $("input[name=inlineRadioOptions1]:checked").val();
-            if (questionAnswerOne === "correct"){
-                correctAnswers++
-                console.log("correct" + correctAnswers); 
-            } //if statement close
-            else if (questionAnswerOne !== "correct") {
-                incorrectAnswers++; 
-                console.log("incorrect" + incorrectAnswers); 
-            }; 
-      
-            
-
-//if that radio === the correct radio
-//correct answers increases
-//if that radio !== the correct radio
-//incorrect answers increases
-//if no radio button is selected
-//unaswered increases 
+         } //if statement close
+         else if (questionAnswer !== "correct") {//if not correct, incorrect answeres increases
+             incorrectAnswers++; 
+             
+         }
+         notAnswered(); //calls not answered function to calculate not answered questions 
+                  
+        }//if check loop end
     });//loop end
 };//question function ended
 
 
+function end() {//end of game when score board is revealed 
+    clearInterval(timer); 
+    question(); 
+    notAnswered(); 
+    $("#gamePlay").html("<br/><div id='score'>All done!<br/>" +
+                            "Correct Answers: " + correctAnswers + "<br/>" + 
+                            "Incorrect Answers: " + incorrectAnswers + "<br/>" + 
+                            "Unanswered: " + unanswered + "</div>");
+    
+};//end function end
 
-
-
-
-
-//question(); //run the question function 
-//Problem 3: If last question is answered, score screen comes up
- 
