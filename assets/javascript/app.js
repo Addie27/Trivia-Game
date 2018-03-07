@@ -24,7 +24,7 @@ question(); //calling question function
 
 function notAnswered() {//used to calculate not answered questions 
     var result = correctAnswers + incorrectAnswers
-    if (result < 10){
+    if (result <= 10){
         unanswered = 10 - (result); 
     }
 };//unanswered function end
