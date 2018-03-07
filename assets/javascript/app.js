@@ -2,7 +2,7 @@ var questionAnswer;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var unanswered = 0; 
-var time = 20;
+var time = 120;
 var timer; 
 
 
