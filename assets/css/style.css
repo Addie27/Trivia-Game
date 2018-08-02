@@ -2,20 +2,44 @@ body {
     background-image: url("../images/cheetah.jpg");
     background-size: cover; 
     font-family: 'Questrial', sans-serif;
+    
 }
 
-.panel {
-    font-size: 20px; 
-    background-color: lightgreen; 
+.jumbotron {
+    background-color: black;
+    color: orange;
+    align-content: center;
 }
 
 .panel-title {
     font-size: 50px; 
 }
 
-.panel-heading {
-    background-color: greenyellow !important;   
+.timer {
+    font-size: 21px; 
+}
 
+.wrapper {
+    position: relative;
+    left: 20%;
+    right: 30%; 
+}
+
+.panel-heading {
+    background-color: black !important;
+    color: orange !important;
+}
+
+.panel-body {
+    background-color: burlywood !important;
+    color: black !important;
+}
+
+.top-title {
+    height: 100px !important;
+    width: 100% !important; 
+    background-color: black !important;
+    color: orange !important;
 }
 
 #score {
@@ -40,9 +64,6 @@ body {
     text-align: center;
 }
 
-.question1 {
-    padding-top: 210px; 
-}
 
 #start, .submit {
     width: 100px;
@@ -53,11 +74,42 @@ body {
     color: black; 
     padding: 5px; 
     text-decoration: none; 
-    background-color: lightgreen; 
+    background-color: orange;  
 
 }
 
 #gamestart {
     height: 400px; 
+}
+
+@media (max-width: 1068px) {
+
+    
+    .question1 {
+        padding-top: 20px; 
+    } 
+
+    .wrapper {
+        position: relative;
+        left: 10%;
+        right: 30%; 
+        max-width: 90%; 
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    
+    .question1 {
+        padding-top: 20px; 
+    } 
+
+    .wrapper {
+        position: relative;
+        left: 5%;
+        right: 5%; 
+    }
+
 }
 
